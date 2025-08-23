@@ -1,257 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Revenue Lift Engine | AI Growth for Shopify Brands</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Daniel Chat Widget Styles */
-    #daniel-widget {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 400px;
-      max-width: 90%;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      z-index: 9999;
-    }
-    #daniel-header {
-      background: linear-gradient(135deg, #1e90ff, #00bfa5);
-      color: white;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    #daniel-messages {
-      padding: 12px;
-      height: 300px;
-      overflow-y: auto;
-      font-size: 14px;
-    }
-    .daniel-message {
-      margin-bottom: 10px;
-    }
-    .daniel-bot {
-      background: #f1f5f9;
-      padding: 8px 12px;
-      border-radius: 10px;
-      display: inline-block;
-    }
-    .daniel-user {
-      background: #d1f7c4;
-      padding: 8px 12px;
-      border-radius: 10px;
-      display: inline-block;
-      align-self: flex-end;
-    }
-    #daniel-input {
-      display: flex;
-      border-top: 1px solid #ddd;
-    }
-    #daniel-input input {
-      flex: 1;
-      border: none;
-      padding: 10px;
-      font-size: 14px;
-    }
-    #daniel-input button {
-      background: #1e90ff;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-    #daniel-launcher {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1e90ff, #00bfa5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 9998;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-    }
-    #daniel-launcher span {
-      color: white;
-      font-size: 28px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Shopify Growth</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  header {
+    background: linear-gradient(135deg, #4f8dfd, #2ad6c5);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+  }
+
+  header p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+
+  header button {
+    padding: 15px 25px;
+    font-size: 1em;
+    color: #fff;
+    background: #2ad6c5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 40px;
+  }
+
+  .feature {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .feature h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .testimonial {
+    min-width: 300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+  }
+
+  .testimonial img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+  }
+
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+  }
+
+  /* Chatbot button */
+  #chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2ad6c5;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  #chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #chat-header {
+    background: #2ad6c5;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  #chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+  }
+
+  #chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  #chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  #chat-input button {
+    background: #2ad6c5;
+    color: #fff;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  @media(max-width:768px){
+    .features { flex-direction: column; }
+  }
+
+</style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-indigo-700 via-blue-600 to-purple-700 text-white py-20 px-16 desktop:flex desktop:items-center desktop:justify-between">
-    <div class="desktop:w-1/2">
-      <h1 class="text-5xl font-extrabold mb-6 leading-tight">Increase Your Shopify Revenue by 15 to 30% With AI-Powered Customer Flows</h1>
-      <p class="text-xl mb-8">We automate cart recovery, upsells, and win-back campaigns using AI so your customers keep coming back and your revenue grows consistently.</p>
-      <a href="#book" class="bg-yellow-400 text-gray-900 font-semibold px-8 py-4 rounded-xl shadow hover:bg-yellow-300 transition">Book a Free Strategy Call</a>
+<header>
+  <h1>Increase Your Shopify Revenue by 15 to 30%</h1>
+  <p>We automate cart recovery, upsells, and win-back campaigns so your customers keep coming back and your revenue grows consistently.</p>
+  <button>Book a Free Strategy Call</button>
+</header>
+
+<section class="section">
+  <h2>How We Help You Grow</h2>
+  <div class="features">
+    <div class="feature">
+      <div>🔍</div>
+      <h3>Audit & Setup</h3>
+      <p>We review your store, segment customers, and set up automated email and SMS flows tailored to your audience.</p>
     </div>
-    <div class="desktop:w-1/2 mt-12 desktop:mt-0 flex justify-center">
-      <img src="https://via.placeholder.com/500x350" alt="AI Growth Mockup" class="rounded-xl shadow-xl">
+    <div class="feature">
+      <div>⚙️</div>
+      <h3>AI-Powered Campaigns</h3>
+      <p>Smart cart recovery, upsells, and win-back campaigns that adapt based on customer behavior and maximize revenue.</p>
     </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section class="max-w-6xl mx-auto px-16 py-20">
-    <h2 class="text-4xl font-bold text-center mb-14">How We Help You Grow</h2>
-    <div class="grid desktop:grid-cols-3 gap-10 text-center">
-      <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition">
-        <h3 class="text-2xl font-semibold mb-3">Audit & Setup</h3>
-        <p>We review your store, segment customers, and set up automated email and SMS flows tailored to your audience.</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition">
-        <h3 class="text-2xl font-semibold mb-3">AI-Powered Campaigns</h3>
-        <p>Smart cart recovery, upsells, and win-back campaigns that adapt based on customer behavior and maximize revenue.</p>
-      </div>
-      <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition">
-        <h3 class="text-2xl font-semibold mb-3">Ongoing Optimization</h3>
-        <p>We continuously test subject lines, incentives, and messaging to ensure your revenue grows over time.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Breakdown -->
-  <section class="bg-gray-100 py-20 px-16">
-    <h2 class="text-4xl font-bold text-center mb-14">Our Services</h2>
-    <div class="grid desktop:grid-cols-4 gap-8 text-center">
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Cart Recovery</h3>
-        <p>Email and SMS flows that bring abandoned carts back, increasing your completed orders.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Upsell & Cross-sell</h3>
-        <p>AI recommends products at the right time to increase average order value for every customer.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Win-Back Campaigns</h3>
-        <p>Target lapsed customers with personalized messaging to drive repeat purchases and loyalty.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-semibold text-xl mb-2">Analytics Dashboard</h3>
-        <p>Track percentage lift in revenue, repeat buyers, and customer engagement in one place.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="py-20 px-16">
-    <h2 class="text-4xl font-bold text-center mb-12">What Store Owners Are Saying</h2>
-    <div class="grid desktop:grid-cols-2 gap-10 max-w-5xl mx-auto">
-      <div class="bg-white text-gray-900 p-6 rounded-xl shadow">
-        <p class="italic">The AI cart recovery agent paid for itself within weeks. Our abandoned cart rate dropped significantly.</p>
-        <p class="mt-4 font-semibold">— Sarah, DTC Apparel Brand</p>
-      </div>
-      <div class="bg-white text-gray-900 p-6 rounded-xl shadow">
-        <p class="italic">We saw a clear lift in repeat purchases after the AI win-back campaigns kicked in. Super easy setup.</p>
-        <p class="mt-4 font-semibold">— Jason, Health & Wellness Store</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="bg-gray-50 py-20 px-16">
-    <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-    <div class="max-w-4xl mx-auto space-y-8 text-left text-lg">
-      <div>
-        <h3 class="font-semibold mb-2">How long until I see results?</h3>
-        <p>Most stores see measurable percentage increases in key metrics within 30–60 days of activation.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Which platforms are supported?</h3>
-        <p>We support Shopify, WooCommerce, and major e-commerce platforms, with fully customized automation for each.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">How does the AI personalize messages?</h3>
-        <p>Our AI learns from customer behavior, previous purchases, and engagement data to craft highly relevant messages.</p>
-      </div>
-      <div>
-        <h3 class="font-semibold mb-2">Is my data safe?</h3>
-        <p>Absolutely. All data is securely stored and handled in compliance with industry best practices.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Booking CTA -->
-  <section id="book" class="bg-gradient-to-r from-yellow-400 to-yellow-500 py-20 px-16 text-gray-900 text-center">
-    <h2 class="text-4xl font-bold mb-6">Ready to Unlock Growth for Your Store?</h2>
-    <p class="text-lg mb-6">Book a free strategy session with Luke today and see how AI-powered flows can increase your revenue.</p>
-    <a href="https://calendly.com/YOUR_CALENDLY_LINK" class="bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition">Schedule My Strategy Call</a>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-10 text-center text-sm bg-gray-900 text-gray-400">
-    <p>© 2025 Revenue Lift Engine. All rights reserved.</p>
-  </footer>
-
-  <!-- Daniel Chat Widget -->
-  <div id="daniel-launcher"><span>💬</span></div>
-  <div id="daniel-widget">
-    <div id="daniel-header">Daniel - Growth Specialist</div>
-    <div id="daniel-messages"></div>
-    <div id="daniel-input">
-      <input type="text" id="daniel-text" placeholder="Type here..."/>
-      <button onclick="sendMessage()">Send</button>
+    <div class="feature">
+      <div>📈</div>
+      <h3>Ongoing Optimization</h3>
+      <p>We continuously test subject lines, incentives, and messaging to ensure your revenue grows over time.</p>
     </div>
   </div>
+</section>
 
-  <script>
-    const launcher = document.getElementById("daniel-launcher");
-    const widget = document.getElementById("daniel-widget");
-    const messages = document.getElementById("daniel-messages");
-    const input = document.getElementById("daniel-text");
+<section class="section">
+  <h2>What Store Owners Are Saying</h2>
+  <div class="testimonial-container">
+    <div class="testimonial">
+      <img src="/mnt/data/f6298e01-3fdb-40e8-b74b-80c75db4a350.png" alt="Sarah">
+      <p><strong>Sarah, DFC Appare2 Brand</strong></p>
+      <p>The AI cart recovery agent paid for itself within weeks. Our abandoned cart rate dropped significantly.</p>
+    </div>
+  </div>
+</section>
 
-    let step = 0;
-    const questions = [
-      "Hi, I’m Daniel, Growth Specialist from Luke’s team 👋 Let’s take 2 minutes to see where we can add the most value to your store. What platform are you currently selling on? Shopify, WooCommerce, or something else?",
-      "Great, and what’s your average monthly revenue right now?",
-      "Perfect, and what’s the number one growth challenge you’re facing today?",
-      "Thanks for sharing, I already see where we can increase your numbers. Let’s set up a 15-minute strategy call with Luke. Grab your time slot here 👉 https://calendly.com/YOUR_CALENDLY_LINK"
-    ];
+<footer>
+  &copy; 2025 Your Brand Name. All rights reserved.
+</footer>
 
-    launcher.onclick = () => {
-      widget.style.display = "flex";
-      launcher.style.display = "none";
-      setTimeout(() => addBotMessage(questions[step]), 500);
-    };
+<!-- Chatbot button -->
+<button id="chatbot">💬</button>
 
-    function addBotMessage(text) {
-      const msg = document.createElement("div");
-      msg.classList.add("daniel-message", "daniel-bot");
-      msg.innerText = text;
-      messages.appendChild(msg);
-      messages.scrollTop = messages.scrollHeight;
-    }
+<!-- Chat window -->
+<div id="chat-window">
+  <div id="chat-header">Daniel Chatbot</div>
+  <div id="chat-messages"></div>
+  <div id="chat-input">
+    <input type="text" id="chat-text" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
 
-    function addUserMessage(text) {
-      const msg = document.createElement("div");
-      msg.classList.add("daniel-message", "daniel-user");
-      msg.innerText = text;
-      messages.appendChild(msg);
-      messages.scrollTop = messages.scrollHeight;
-    }
+<script>
+  const chatbotBtn = document.getElementById('chatbot');
+  const chatWindow = document.getElementById('chat-window');
+  const chatMessages = document.getElementById('chat-messages');
+  const chatText = document.getElementById('chat-text');
 
-    function sendMessage() {
-      const text = input.value.trim();
-      if (!text) return;
-      addUserMessage(text);
-      input.value = "";
-      step++;
-      if (step < questions.length) {
-        setTimeout(() => addBotMessage(questions[step]), 600);
-      }
-    }
-  </script>
+  chatbotBtn.addEventListener('click', () => {
+    chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  function sendMessage() {
+    const message = chatText.value.trim();
+    if (!message) return;
+    const userMsg = document.createElement('div');
+    userMsg.textContent = 'You: ' + message;
+    chatMessages.appendChild(userMsg);
+    
+    // Simple bot response (replace with real AI integration later)
+    const botMsg = document.createElement('div');
+    botMsg.textContent = 'Daniel: I am here to help!';
+    chatMessages.appendChild(botMsg);
+    
+    chatText.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+</script>
+
 </body>
 </html>
