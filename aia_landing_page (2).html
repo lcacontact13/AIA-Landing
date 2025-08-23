@@ -1,6 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>
+  #daniel-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+  }
+
+  #daniel-header {
+    background: linear-gradient(135deg, #1e90ff, #00bfa5);
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  #daniel-messages {
+    padding: 12px;
+    height: 300px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  .daniel-message {
+    margin-bottom: 10px;
+  }
+
+  .daniel-bot {
+    background: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+
+  .daniel-user {
+    background: #d1f7c4;
+    padding: 8px 12px;
+    border-radius: 10px;
+    display: inline-block;
+    align-self: flex-end;
+  }
+
+  #daniel-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  #daniel-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #daniel-input button {
+    background: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  #daniel-launcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e90ff, #00bfa5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9998;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  }
+
+  #daniel-launcher span {
+    color: white;
+    font-size: 28px;
+  }
+</style>
+<div id="daniel-launcher"><span>💬</span></div>
+
+<div id="daniel-widget">
+  <div id="daniel-header">Daniel - Growth Specialist</div>
+  <div id="daniel-messages"></div>
+  <div id="daniel-input">
+    <input type="text" id="daniel-text" placeholder="Type here..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script>
+  const launcher = document.getElementById("daniel-launcher");
+  const widget = document.getElementById("daniel-widget");
+  const messages = document.getElementById("daniel-messages");
+  const input = document.getElementById("daniel-text");
+
+  let step = 0;
+  const questions = [
+    "Hi, I’m Daniel, Growth Specialist from Luke’s team 👋 Let’s take 2 minutes to see where we can add the most value to your store. What platform are you currently selling on? Shopify, WooCommerce, or something else?",
+    "Great, and what’s your average monthly revenue right now?",
+    "Perfect, and what’s the number one growth challenge you’re facing today?",
+    "Thanks for sharing, I already see where we can increase your numbers. Let’s set up a 15-minute strategy call with Luke. Grab your time slot here 👉 [YOUR_CALENDLY_LINK]"
+  ];
+
+  launcher.onclick = () => {
+    widget.style.display = "flex";
+    launcher.style.display = "none";
+    setTimeout(() => addBotMessage(questions[step]), 500);
+  };
+
+  function addBotMessage(text) {
+    const msg = document.createElement("div");
+    msg.classList.add("daniel-message", "daniel-bot");
+    msg.innerText = text;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function addUserMessage(text) {
+    const msg = document.createElement("div");
+    msg.classList.add("daniel-message", "daniel-user");
+    msg.innerText = text;
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+    addUserMessage(text);
+    input.value = "";
+    step++;
+    if (step < questions.length) {
+      setTimeout(() => addBotMessage(questions[step]), 600);
+    }
+  }
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIA – AI Agents for Ecommerce Growth</title>
