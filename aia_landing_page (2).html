@@ -1,297 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeadGenExpress | AI Growth Solutions</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeadGenExpress — AI Growth Systems</title>
+  <meta name="description" content="LeadGenExpress builds AI-powered acquisition, upsell, and conversion systems that grow revenue for modern eCommerce and digital brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #222;
-      background-color: #f9fafc;
-      line-height: 1.6;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(90deg, #005bea, #00c6fb);
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header img {
-      height: 50px;
-    }
-    nav a {
-      margin: 0 1rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #00c6fb, #005bea);
-      color: #fff;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    .hero button {
-      background: #fff;
-      color: #005bea;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .hero button:hover {
-      background: #e6e6e6;
-    }
-
-    /* Services Section */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 4rem 2rem;
-      background: #fff;
-      text-align: center;
-    }
-    .service-box {
-      padding: 2rem;
-      border-radius: 10px;
-      background: #f4f8fc;
-      box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-    }
-    .service-box h3 {
-      margin-bottom: 1rem;
-      color: #005bea;
-    }
-
-    /* Testimonials */
-    .testimonials {
-      padding: 4rem 2rem;
-      background: #f9fafc;
-      text-align: center;
-    }
-    .testimonial-slider {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    .testimonial {
-      display: none;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-    .testimonial.active {
-      display: block;
-    }
-    .testimonial p {
-      font-style: italic;
-    }
-    .testimonial h4 {
-      margin-top: 1rem;
-      font-weight: bold;
-      color: #005bea;
-    }
-    .testimonial-nav {
-      margin-top: 1rem;
-    }
-    .testimonial-nav button {
-      border: none;
-      background: #005bea;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      margin: 0 0.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .testimonial-nav button:hover {
-      background: #0040b5;
-    }
-
-    /* Footer */
-    footer {
-      background: #222;
-      color: #fff;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    footer h2 {
-      margin-bottom: 1rem;
-    }
-    .footer-form {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .footer-form label {
-      display: block;
-      margin: 0.5rem 0 0.2rem;
-    }
-    .footer-form input,
-    .footer-form select,
-    .footer-form textarea {
-      width: 100%;
-      padding: 0.7rem;
-      border: none;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
-    .footer-form button {
-      width: 100%;
-      background: #00c6fb;
-      border: none;
-      padding: 1rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .footer-form button:hover {
-      background: #005bea;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    /* testimonial slider */
+    .ts-item{ display:none; }
+    .ts-item.active{ display:block; }
+    .glass { backdrop-filter: saturate(150%) blur(8px); background: rgba(255,255,255,.75); }
   </style>
 </head>
-<body>
-  <!-- Header -->
-  <header>
-    <img src="https://via.placeholder.com/150x50?text=LeadGenExpress+Logo" alt="LeadGenExpress Logo">
-    <nav>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#services">Services</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<body class="bg-slate-50 text-slate-900">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="h-16 flex items-center justify-between">
+        <!-- Brand: Inline SVG Logo + Wordmark -->
+        <a href="#top" class="flex items-center gap-3 group" aria-label="LeadGenExpress Home">
+          <!-- LOGO: LGE arrow mark -->
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform group-hover:scale-105">
+            <defs>
+              <linearGradient id="lgx" x1="6" y1="58" x2="58" y2="6" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00C6FF"/>
+                <stop offset="1" stop-color="#0072FF"/>
+              </linearGradient>
+            </defs>
+            <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#lgx)"/>
+            <path d="M22 40V24h6v10h6V24h6v16H22z" fill="white" opacity=".95"/> <!-- stylized LGE bars -->
+            <path d="M22 44h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/> <!-- speed underline -->
+            <path d="M42 22l6 6-6 6" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/> <!-- forward arrow -->
+          </svg>
+          <span class="text-lg sm:text-xl font-extrabold tracking-tight">LeadGenExpress</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-slate-700" href="#how-it-works">How it works</a>
+          <a class="hover:text-slate-700" href="#solutions">Solutions</a>
+          <a class="hover:text-slate-700" href="#cases">Case studies</a>
+          <a class="hover:text-slate-700" href="#testimonials">Testimonials</a>
+          <a class="hover:text-slate-700" href="#faq">FAQ</a>
+        </nav>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white px-4 py-2 text-sm font-semibold shadow hover:brightness-110">Get my growth plan <span>→</span></a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>AI-Powered Growth for Modern Businesses</h1>
-    <p>LeadGenExpress helps companies scale through Lead Generation, Upsell/Cross-Sell Strategies, and Conversion Optimization.</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-      Get My Growth Plan
-    </button>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="services">
-    <div class="service-box">
-      <h3>Lead Generation</h3>
-      <p>We build AI-powered campaigns to consistently bring new, qualified leads into your pipeline, tailored to your industry.</p>
+  <!-- HERO -->
+  <section id="top" class="relative">
+    <!-- Background image with overlay -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000&auto=format&fit=crop" alt="Team reviewing growth dashboard" class="w-full h-full object-cover"/>
+      <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-900/50 to-sky-900/40"></div>
     </div>
-    <div class="service-box">
-      <h3>Upsell & Cross-Sell</h3>
-      <p>Maximize revenue per customer by creating personalized upsell and cross-sell strategies using data-driven insights.</p>
-    </div>
-    <div class="service-box">
-      <h3>Conversion Optimization</h3>
-      <p>Turn browsers into buyers with AI-enhanced funnels, behavioral tracking, and conversion rate optimization techniques.</p>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-slider">
-      <div class="testimonial active">
-        <p>"LeadGenExpress transformed our e-commerce funnel. We saw a 35% increase in conversions within 60 days."</p>
-        <h4>– Sarah M., E-Commerce Founder</h4>
+    <div class="relative max-w-7xl mx-auto px-4 lg:px-6 py-16 md:py-20">
+      <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-7 text-white">
+          <h1 class="text-3xl md:text-5xl font-black leading-tight">AI-powered acquisition, upsells, and conversion systems that compound revenue</h1>
+          <p class="mt-4 text-white/90 max-w-2xl">We install lifecycle programs that turn more visitors into customers and more customers into repeat buyers. Focus areas: Lead Generation, Upsell & Cross-sell, Increased Conversion Rate.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#contact" class="inline-flex items-center justify-center bg-white text-slate-900 px-5 py-3 rounded-xl font-semibold shadow hover:shadow-md">Get my plan</a>
+            <a href="#how-it-works" class="inline-flex items-center justify-center glass text-white px-5 py-3 rounded-xl font-semibold ring-1 ring-white/30">How it works</a>
+          </div>
+          <div class="mt-6 grid grid-cols-3 sm:grid-cols-6 gap-4 items-center opacity-90">
+            <div class="text-xs text-white/80">Acme & Co</div>
+            <div class="text-xs text-white/80">Northwind</div>
+            <div class="text-xs text-white/80">Globex</div>
+            <div class="text-xs text-white/80">Aperture</div>
+            <div class="text-xs text-white/80">Umbrella</div>
+            <div class="text-xs text-white/80">Stark Labs</div>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <div class="glass rounded-2xl p-3 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1551281044-8d8d0d8ec5e8?q=80&w=1600&auto=format&fit=crop" alt="Lifecycle revenue dashboard" class="rounded-xl w-full h-full object-cover"/>
+          </div>
+        </div>
       </div>
-      <div class="testimonial">
-        <p>"Their AI systems uncovered revenue we didn’t even know we were missing. Our upsell rates doubled."</p>
-        <h4>– James R., SaaS CEO</h4>
-      </div>
-      <div class="testimonial">
-        <p>"I was skeptical at first, but their approach is data-driven and results-focused. Our lead flow has never been stronger."</p>
-        <h4>– Maria L., Marketing Director</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Not just leads, but qualified leads. Our sales team is closing more deals thanks to LeadGenExpress."</p>
-        <h4>– David W., B2B Sales VP</h4>
-      </div>
-      <div class="testimonial">
-        <p>"The ROI was clear within the first quarter. Every business serious about growth should work with them."</p>
-        <h4>– Emily K., Startup Founder</h4>
-      </div>
-    </div>
-    <div class="testimonial-nav">
-      <button onclick="showTestimonial(-1)">‹</button>
-      <button onclick="showTestimonial(1)">›</button>
     </div>
   </section>
 
-  <!-- Footer Contact Form -->
-  <footer id="contact">
-    <h2>Get Your Custom Growth Plan</h2>
-    <form class="footer-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" required>
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
-      
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" required>
-      
-      <label for="business">Business Name</label>
-      <input type="text" id="business" required>
-      
-      <label for="help">What help are you looking for?</label>
-      <select id="help" required>
-        <option value="">Select one...</option>
-        <option value="Lead Generation">Lead Generation</option>
-        <option value="Upsell/Cross Sell">Upsell / Cross Sell</option>
-        <option value="Conversion Optimization">Increased Conversion Rate</option>
-      </select>
-      
-      <button type="submit">Submit</button>
-    </form>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="py-12 md:py-14">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center">How it works</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl shadow p-6">
+          <div class="h-10 w-10 rounded-lg bg-sky-100 text-sky-700 grid place-items-center font-bold">1</div>
+          <h3 class="mt-3 font-bold text-lg">Audit and blueprint</h3>
+          <p class="mt-2 text-slate-600">We analyze funnel data, traffic sources, and messaging. You get a 30-day plan with prioritized wins for capture, nurture, and conversion.</p>
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Audit and blueprint" class="rounded-lg mt-4"/>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6">
+          <div class="h-10 w-10 rounded-lg bg-sky-100 text-sky-700 grid place-items-center font-bold">2</div>
+          <h3 class="mt-3 font-bold text-lg">Install AI flows</h3>
+          <p class="mt-2 text-slate-600">Lead capture popups, multi-step emails and SMS, on-site upsells, and recovery sequences tuned to your brand voice.</p>
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Install AI flows" class="rounded-lg mt-4"/>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6">
+          <div class="h-10 w-10 rounded-lg bg-sky-100 text-sky-700 grid place-items-center font-bold">3</div>
+          <h3 class="mt-3 font-bold text-lg">Optimize and scale</h3>
+          <p class="mt-2 text-slate-600">Weekly tests on offers, timing, and creative. We report clean percentage lift via holdouts for conversion, AOV, and repeat rate.</p>
+          <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=1200&auto=format&fit=crop" alt="Optimize and scale" class="rounded-lg mt-4"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS / WHAT WE DO -->
+  <section id="solutions" class="bg-white py-12 md:py-14 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="grid md:grid-cols-12 gap-8 items-start">
+        <div class="md:col-span-5">
+          <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">What we deliver</h2>
+          <p class="mt-3 text-slate-700">A full-stack lifecycle revenue program that lifts performance across the funnel. We integrate with Shopify, WooCommerce, Klaviyo, Omnisend, Attentive, and more.</p>
+          <ul class="mt-4 space-y-2 text-slate-700">
+            <li class="flex gap-2"><span>✅</span><span>Lead capture and scoring with progressive profiling</span></li>
+            <li class="flex gap-2"><span>✅</span><span>Abandoned browse and cart recovery</span></li>
+            <li class="flex gap-2"><span>✅</span><span>Post-purchase upsells and replenishment reminders</span></li>
+            <li class="flex gap-2"><span>✅</span><span>Lapsed customer winbacks and VIP programs</span></li>
+            <li class="flex gap-2"><span>✅</span><span>Attribution with holdouts, clean lift reporting</span></li>
+          </ul>
+          <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+            <div class="bg-slate-50 rounded-xl p-4"><div class="text-2xl font-black">+18%</div><div class="text-xs text-slate-600">avg CVR lift</div></div>
+            <div class="bg-slate-50 rounded-xl p-4"><div class="text-2xl font-black">+27%</div><div class="text-xs text-slate-600">AOV impact</div></div>
+            <div class="bg-slate-50 rounded-xl p-4"><div class="text-2xl font-black">+22%</div><div class="text-xs text-slate-600">repeat rate</div></div>
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="rounded-2xl overflow-hidden shadow">
+              <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop" alt="Lead capture" class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <h3 class="font-semibold">Lead Generation</h3>
+                <p class="text-sm text-slate-600 mt-1">Bring qualified prospects into your list with high-intent offers and on-site capture that converts.</p>
+              </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow">
+              <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1600&auto=format&fit=crop" alt="Upsell" class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <h3 class="font-semibold">Upsell / Cross-sell</h3>
+                <p class="text-sm text-slate-600 mt-1">Personalized recommendations at the right moments to lift AOV without heavy discounting.</p>
+              </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" alt="CRO" class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <h3 class="font-semibold">Increased Conversion Rate</h3>
+                <p class="text-sm text-slate-600 mt-1">Run controlled tests across copy, offers, and timing to consistently improve conversion.</p>
+              </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Reporting" class="w-full h-48 object-cover"/>
+              <div class="p-4">
+                <h3 class="font-semibold">Attribution & Reporting</h3>
+                <p class="text-sm text-slate-600 mt-1">Holdouts and source-of-truth dashboards show real percentage lift across key KPIs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES / RESULTS -->
+  <section id="cases" class="py-12 md:py-14">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Selected results</h2>
+        <a href="#contact" class="text-sm font-semibold text-sky-700 hover:text-sky-900">Get your plan →</a>
+      </div>
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <article class="bg-white rounded-2xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1515165562835-c3b8bd2b0ea1?q=80&w=1600&auto=format&fit=crop" alt="DTC skincare brand" class="w-full h-48 object-cover"/>
+          <div class="p-5">
+            <h3 class="font-bold">DTC skincare</h3>
+            <p class="text-sm text-slate-600 mt-1">Implemented browse recovery, upgraded cart flows, and one-click post-purchase upsells.</p>
+            <div class="mt-3 grid grid-cols-3 gap-3 text-center text-sm">
+              <div class="bg-slate-50 rounded-lg p-3"><div class="font-black text-lg">+24%</div><div class="text-slate-600">CVR</div></div>
+              <div class="bg-slate-50 rounded-lg p-3"><div class="font-black text-lg">+31%</div><div class="text-slate-600">AOV</div></div>
+              <div class="bg-slate-50 rounded-lg p-3"><div class="font-black text-lg">+18%</div><div class="text-slate-600">Repeat</div></div>
+            </div>
+          </div>
+        </article>
+        <article class="bg-white rounded-2xl shadow overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop" alt="Fitness equipment brand" class="w-full h-48 object-cover"/>
+          <div class="p-5">
+            <h3 class="font-bold">Fitness equipment</h3>
+            <p class="text-sm text-slate-600 mt-1">Lead scoring, timed reminders, and replenishment sequences reduced churn and CAC.</p>
+            <div class="mt-3 grid grid-cols-3 gap-3 text-center text-sm">
+              <div class="bg-slate-50 rounded-lg p-3"><div class="font-black text-lg">+19%</div><div class="text-slate-600">CVR</div></div>
+              <div class="bg-slate-50 rounded-lg p-3"><div class="font-black text-lg">−14%</div><div class="text-slate-600">CAC</div></div>
+              <div class="bg-slate-50 rounded-lg p-3"><div class="font-black text-lg">+26%</div><div class="text-slate-600">AOV</div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (carousel) -->
+  <section id="testimonials" class="bg-white py-12 md:py-14 border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">What clients say</h2>
+        <div class="flex items-center gap-2">
+          <button id="ts-prev" class="h-10 w-10 rounded-full grid place-items-center bg-slate-100 hover:bg-slate-200">←</button>
+          <button id="ts-next" class="h-10 w-10 rounded-full grid place-items-center bg-slate-100 hover:bg-slate-200">→</button>
+        </div>
+      </div>
+      <div class="mt-6">
+        <article class="ts-item active bg-slate-50 rounded-2xl p-6 shadow">
+          <div class="flex items-start gap-4">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop" alt="Sarah Kim" class="w-14 h-14 rounded-full object-cover"/>
+            <div>
+              <p class="text-slate-800">“We had decent traffic but low conversion. The LeadGenExpress audit was precise and the first experiments paid off fast. Upsells worked without discounting and the reporting gave us confidence.”</p>
+              <div class="mt-2 text-sm font-semibold">Sarah Kim · Founder, Veil Skincare</div>
+            </div>
+          </div>
+        </article>
+        <article class="ts-item bg-slate-50 rounded-2xl p-6 shadow">
+          <div class="flex items-start gap-4">
+            <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=300&auto=format&fit=crop" alt="Jason Reed" class="w-14 h-14 rounded-full object-cover"/>
+            <div>
+              <p class="text-slate-800">“They built a clean lifecycle program across email and SMS. The holdout tests showed true percentage lift and stopped internal debates over attribution.”</p>
+              <div class="mt-2 text-sm font-semibold">Jason Reed · Owner, Vital Greens</div>
+            </div>
+          </div>
+        </article>
+        <article class="ts-item bg-slate-50 rounded-2xl p-6 shadow">
+          <div class="flex items-start gap-4">
+            <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=300&auto=format&fit=crop" alt="Lena Ortiz" class="w-14 h-14 rounded-full object-cover"/>
+            <div>
+              <p class="text-slate-800">“The team wrote copy that sounded like us, not generic templates. Our AOV rose and customer replies were positive instead of annoyed.”</p>
+              <div class="mt-2 text-sm font-semibold">Lena Ortiz · COO, Apex Athletics</div>
+            </div>
+          </div>
+        </article>
+        <article class="ts-item bg-slate-50 rounded-2xl p-6 shadow">
+          <div class="flex items-start gap-4">
+            <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?q=80&w=300&auto=format&fit=crop" alt="Mark Patel" class="w-14 h-14 rounded-full object-cover"/>
+            <div>
+              <p class="text-slate-800">“We finally have a repeatable testing rhythm. Weekly changes, clear results, and no random one-off experiments. It is real compounding.”</p>
+              <div class="mt-2 text-sm font-semibold">Mark Patel · CEO, BrewCraft</div>
+            </div>
+          </div>
+        </article>
+        <article class="ts-item bg-slate-50 rounded-2xl p-6 shadow">
+          <div class="flex items-start gap-4">
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format&fit=crop" alt="Emily Zhao" class="w-14 h-14 rounded-full object-cover"/>
+            <div>
+              <p class="text-slate-800">“Setup was quick and the team handled the integrations. We saw the first recovered carts in week one and steady lift after.”</p>
+              <div class="mt-2 text-sm font-semibold">Emily Zhao · Ecommerce Manager, Northshore</div>
+            </div>
+          </div>
+        </article>
+        <div id="ts-dots" class="mt-4 flex items-center justify-center gap-2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-12 md:py-14">
+    <div class="max-w-6xl mx-auto px-4 lg:px-6">
+      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center">FAQ</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <details class="bg-white rounded-xl shadow p-5" open>
+          <summary class="font-semibold cursor-pointer">How fast can we launch</summary>
+          <p class="mt-2 text-slate-700">Core flows go live in 10 business days on average. We prioritize quick wins so you see early lift while deeper tests run.</p>
+        </details>
+        <details class="bg-white rounded-xl shadow p-5">
+          <summary class="font-semibold cursor-pointer">Which tools do you support</summary>
+          <p class="mt-2 text-slate-700">Shopify, WooCommerce, Klaviyo, Omnisend, Postscript, Attentive, and GA4. We adapt to your stack.</p>
+        </details>
+        <details class="bg-white rounded-xl shadow p-5">
+          <summary class="font-semibold cursor-pointer">How do you prove results</summary>
+          <p class="mt-2 text-slate-700">We use holdout groups and KPI dashboards to show percentage improvements that are truly incremental.</p>
+        </details>
+        <details class="bg-white rounded-xl shadow p-5">
+          <summary class="font-semibold cursor-pointer">Do you require discounts</summary>
+          <p class="mt-2 text-slate-700">No. We always start with value-first messaging and only add incentives when they improve profit.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT FORM -->
+  <footer id="contact" class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6 py-10">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <div class="flex items-center gap-3">
+            <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lgx2" x1="6" y1="58" x2="58" y2="6" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00C6FF"/>
+                  <stop offset="1" stop-color="#0072FF"/>
+                </linearGradient>
+              </defs>
+              <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#lgx2)"/>
+              <path d="M22 40V24h6v10h6V24h6v16H22z" fill="white" opacity=".95"/>
+              <path d="M22 44h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <path d="M42 22l6 6-6 6" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="text-lg font-extrabold">LeadGenExpress</span>
+          </div>
+          <p class="mt-3 text-white/80 max-w-md">We help modern brands compound revenue with AI-powered systems for acquisition, upsells, and conversion optimization. Get a no-pressure plan tailored to your store and goals.</p>
+          <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+            <div class="bg-white/5 rounded-lg p-3"><div class="text-xl font-black">+18%</div><div class="text-xs text-white/80">avg CVR lift</div></div>
+            <div class="bg-white/5 rounded-lg p-3"><div class="text-xl font-black">+27%</div><div class="text-xs text-white/80">AOV impact</div></div>
+            <div class="bg-white/5 rounded-lg p-3"><div class="text-xl font-black">+22%</div><div class="text-xs text-white/80">repeat rate</div></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-extrabold">Get your custom growth plan</h3>
+          <form class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="text-sm text-white/80" for="name">Name</label>
+              <input id="name" type="text" class="mt-1 w-full rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/20 px-3 py-2" placeholder="Jane Doe" required>
+            </div>
+            <div>
+              <label class="text-sm text-white/80" for="business">Business name</label>
+              <input id="business" type="text" class="mt-1 w-full rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/20 px-3 py-2" placeholder="Northshore Co" required>
+            </div>
+            <div>
+              <label class="text-sm text-white/80" for="email">Email</label>
+              <input id="email" type="email" class="mt-1 w-full rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/20 px-3 py-2" placeholder="you@company.com" required>
+            </div>
+            <div>
+              <label class="text-sm text-white/80" for="phone">Phone number</label>
+              <input id="phone" type="tel" class="mt-1 w-full rounded-lg bg-white/10 text-white placeholder-white/60 border border-white/20 px-3 py-2" placeholder="(555) 123‑4567" required>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-sm text-white/80" for="help">What help are you looking for</label>
+              <select id="help" class="mt-1 w-full rounded-lg bg-white/10 text-white border border-white/20 px-3 py-2" required>
+                <option value="" class="text-slate-900">Select one</option>
+                <option value="Lead Generation" class="text-slate-900">Lead Generation</option>
+                <option value="Upsell / Cross Sell" class="text-slate-900">Upsell / Cross Sell</option>
+                <option value="Increased Conversion Rate" class="text-slate-900">Increased Conversion Rate</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <button type="submit" class="w-full rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white font-semibold px-4 py-3 shadow hover:brightness-110">Submit</button>
+            </div>
+          </form>
+          <p class="mt-2 text-xs text-white/60">By submitting, you agree to be contacted about your plan. No spam.</p>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-white/10 pt-6 text-xs text-white/60 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+        <div>© 2025 LeadGenExpress. All rights reserved.</div>
+        <div class="flex gap-4">
+          <a href="#how-it-works" class="hover:text-white">How it works</a>
+          <a href="#solutions" class="hover:text-white">Solutions</a>
+          <a href="#cases" class="hover:text-white">Results</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // Testimonial slider
-    let currentTestimonial = 0;
-    const testimonials = document.querySelectorAll('.testimonial');
-    
-    function showTestimonial(step) {
-      testimonials[currentTestimonial].classList.remove('active');
-      currentTestimonial = (currentTestimonial + step + testimonials.length) % testimonials.length;
-      testimonials[currentTestimonial].classList.add('active');
+    // Testimonials carousel logic
+    const items = [...document.querySelectorAll('.ts-item')];
+    const prev = document.getElementById('ts-prev');
+    const next = document.getElementById('ts-next');
+    const dotsC = document.getElementById('ts-dots');
+    let idx = 0;
+
+    // Build dots
+    items.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'w-2.5 h-2.5 rounded-full bg-slate-300';
+      b.addEventListener('click', () => show(i));
+      dotsC.appendChild(b);
+    });
+
+    function show(i){
+      items[idx].classList.remove('active');
+      idx = (i + items.length) % items.length;
+      items[idx].classList.add('active');
+      [...dotsC.children].forEach((d, di) => d.className = 'w-2.5 h-2.5 rounded-full ' + (di===idx ? 'bg-indigo-600' : 'bg-slate-300'));
     }
+    prev.addEventListener('click', () => show(idx-1));
+    next.addEventListener('click', () => show(idx+1));
+    show(0);
   </script>
 </body>
 </html>
+
