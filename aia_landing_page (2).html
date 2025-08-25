@@ -1,342 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Revenue Lift Engine | AI Growth for Shopify Brands</title>
-  <meta name="description" content="Increase Shopify revenue by 15 to 30 percent with AI powered lifecycle flows, cart recovery, upsells, and winbacks." />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeadGenExpress</title>
   <style>
-    /* Smooth scroll for in-page links */
-    html { scroll-behavior: smooth; }
-    /* Daniel Chat Widget Styles */
-    #daniel-widget { position: fixed; bottom: 18px; right: 18px; width: 380px; max-width: 92vw; background: #ffffff; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,.22); display: none; flex-direction: column; overflow: hidden; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; z-index: 9999; }
-    #daniel-header { background: linear-gradient(135deg, #06b6d4, #2563eb); color: #fff; padding: 12px 14px; font-size: 15px; font-weight: 700; display:flex; align-items:center; gap:10px; }
-    #daniel-header img { width:24px; height:24px; }
-    #daniel-messages { padding: 12px; height: 300px; overflow-y: auto; font-size: 14px; background:#f8fafc; }
-    .daniel-message { margin: 8px 0; display:flex; }
-    .daniel-bot { background:#e2e8f0; padding:10px 12px; border-radius: 10px; max-width: 80%; }
-    .daniel-user { background:#d1fae5; padding:10px 12px; border-radius: 10px; margin-left:auto; max-width: 80%; }
-    #daniel-input { display:flex; border-top:1px solid #e5e7eb; }
-    #daniel-input input { flex:1; border:0; padding:12px; font-size:14px; outline:none; }
-    #daniel-input button { background:#2563eb; color:#fff; border:0; padding:0 16px; font-weight:600; }
-    #daniel-launcher { position: fixed; bottom: 18px; right: 18px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #06b6d4, #2563eb); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index: 9998; box-shadow: 0 10px 24px rgba(0,0,0,.22); }
-    #daniel-launcher span { font-size: 26px; color: #fff; }
-    /* Testimonials carousel */
-    .ts-card { transition: transform .25s ease, opacity .25s ease; }
-    .ts-dot { width:10px; height:10px; border-radius:9999px; background:#cbd5e1; }
-    .ts-dot.active { background:#2563eb; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9fafc;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #0077ff, #00c4cc);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: #eef7ff;
+    }
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    .hero button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      background: #0077ff;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      flex: 1 1 280px;
+    }
+    .testimonials {
+      text-align: center;
+      padding: 50px 20px;
+      background: #f1f9ff;
+    }
+    .testimonial {
+      display: none;
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial.active {
+      display: block;
+    }
+    footer {
+      background: #0077ff;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
   </style>
 </head>
-<body class="bg-gradient-to-b from-sky-50 via-white to-white text-gray-900">
-  <!-- Top bar -->
-  <header class="sticky top-0 z-50 backdrop-blur bg-white/85 border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
-      <div class="flex items-center justify-between h-16">
-        <!-- Inline SVG Logo -->
-        <a href="#" class="flex items-center gap-2 group">
-          <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow">
-            <defs>
-              <linearGradient id="g" x1="0" y1="64" x2="64" y2="0" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#06b6d4"/>
-                <stop offset="1" stop-color="#2563eb"/>
-              </linearGradient>
-            </defs>
-            <rect x="6" y="6" width="52" height="52" rx="12" fill="url(#g)"/>
-            <path d="M20 40l10-12 8 8 10-14" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M44 18v10h-10" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="font-extrabold tracking-tight text-lg">Revenue Lift Engine</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#process" class="hover:text-slate-700">Process</a>
-          <a href="#services" class="hover:text-slate-700">Services</a>
-          <a href="#testimonials" class="hover:text-slate-700">Results</a>
-          <a href="#faq" class="hover:text-slate-700">FAQ</a>
-        </nav>
-        <a href="#book" class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-blue-600 text-white px-4 py-2 rounded-lg shadow hover:brightness-110 text-sm font-semibold">Book Strategy Call <span>→</span></a>
-      </div>
-    </div>
-  </header>
+<body>
 
-  <!-- HERO: vibrant, compact, engaging -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-sky-600 to-indigo-700"></div>
-    <svg class="absolute opacity-25 -right-20 -top-20" width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="210" cy="210" r="210" fill="url(#paint0)"/>
-      <defs>
-        <linearGradient id="paint0" x1="0" y1="420" x2="420" y2="0" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#22d3ee"/>
-          <stop offset="1" stop-color="#60a5fa"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <div class="relative max-w-7xl mx-auto px-4 md:px-6 py-14">
-      <div class="grid md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-7 text-white">
-          <h1 class="text-3xl md:text-5xl font-black leading-tight">
-            Increase Your Shopify Revenue by 15 to 30% with AI Powered Flows
-          </h1>
-          <p class="mt-3 md:mt-4 text-white/90 max-w-2xl">
-            We turn more visitors into customers using cart recovery, post purchase upsells, winbacks, and smart messaging that adapts to each shopper.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#book" class="inline-flex items-center justify-center bg-white text-slate-900 px-5 py-3 rounded-xl font-semibold shadow hover:shadow-md">Book a Free Strategy Call</a>
-            <a href="#process" class="inline-flex items-center justify-center bg-white/10 text-white px-5 py-3 rounded-xl font-semibold ring-1 ring-white/30 hover:bg-white/15">How it works</a>
-          </div>
-          <div class="mt-4 flex items-center gap-6 text-white/90 text-sm">
-            <div class="flex items-center gap-2"><span class="text-2xl">📈</span><span>Improved conversion and repeat purchase rates</span></div>
-            <div class="hidden md:flex items-center gap-2"><span class="text-2xl">⏱️</span><span>2 week setup</span></div>
-          </div>
-        </div>
-        <div class="md:col-span-5">
-          <div class="bg-white rounded-2xl shadow-2xl p-4 md:p-5">
-            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Dashboard" class="rounded-xl aspect-[4/3] object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<header>
+  <h1>LeadGenExpress</h1>
+  <nav>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+  </nav>
+</header>
 
-  <!-- Process: tighter spacing, non repetitive copy -->
-  <section id="process" class="max-w-7xl mx-auto px-4 md:px-6 py-14">
-    <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center">Our Process</h2>
-    <div class="mt-8 grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-bold text-lg">1. Audit and Setup</h3>
-        <p class="mt-2 text-slate-600">We review your store, segment customers, connect ESP and SMS, and set baselines so we can measure lift with confidence.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-bold text-lg">2. Launch AI Flows</h3>
-        <p class="mt-2 text-slate-600">Abandoned cart recovery, post purchase upsells, browse recovery, and winbacks tailored to your offers and brand voice.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow p-6">
-        <h3 class="font-bold text-lg">3. Optimize and Scale</h3>
-        <p class="mt-2 text-slate-600">Weekly tests on timing, copy, and incentives. We scale what wins and report percentage improvements across key metrics.</p>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <h2>Fuel Your Business Growth</h2>
+  <p>At LeadGenExpress we help businesses boost lead generation, improve conversions, and increase customer lifetime value using modern AI-driven systems.</p>
+  <button onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Get Started</button>
+</section>
 
-  <!-- Services: concise and specific -->
-  <section id="services" class="bg-slate-50/60 border-y border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-14">
-      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center">What We Deliver</h2>
-      <div class="mt-8 grid md:grid-cols-4 gap-6">
-        <div class="bg-white rounded-xl shadow p-6">
-          <h3 class="font-semibold">Cart Recovery</h3>
-          <p class="mt-2 text-slate-600">Multi touch email and SMS nudges using real time intent signals to rescue lost checkouts.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6">
-          <h3 class="font-semibold">Upsell and Cross sell</h3>
-          <p class="mt-2 text-slate-600">AI recommendations at thank you and reorder moments to lift average order value.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6">
-          <h3 class="font-semibold">Winbacks</h3>
-          <p class="mt-2 text-slate-600">Timed offers and content to bring lapsed buyers back before they churn for good.</p>
-        </div>
-        <div class="bg-white rounded-xl shadow p-6">
-          <h3 class="font-semibold">Attribution and Reporting</h3>
-          <p class="mt-2 text-slate-600">Holdout testing and clean dashboards that show true incremental lift in conversion and repeat rate.</p>
-        </div>
-      </div>
+<section id="how-it-works" class="section">
+  <h3>How It Works</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>Step 1</h4>
+      <p>We analyze your existing sales funnel and find hidden opportunities to capture more leads.</p>
     </div>
-  </section>
-
-  <!-- Testimonials: 5 items with carousel navigation -->
-  <section id="testimonials" class="max-w-7xl mx-auto px-4 md:px-6 py-14">
-    <div class="flex items-end justify-between">
-      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">What Store Owners Say</h2>
-      <div class="flex items-center gap-2">
-        <button id="ts-prev" class="h-10 w-10 rounded-full grid place-items-center bg-slate-100 hover:bg-slate-200">←</button>
-        <button id="ts-next" class="h-10 w-10 rounded-full grid place-items-center bg-slate-100 hover:bg-slate-200">→</button>
-      </div>
+    <div class="card">
+      <h4>Step 2</h4>
+      <p>Our AI-driven automation engages prospects, nurtures them, and converts them into customers.</p>
     </div>
-    <div class="mt-6 relative">
-      <div id="ts-track" class="overflow-hidden">
-        <div id="ts-inner" class="flex gap-6">
-          <!-- Cards will be injected by JS for cleaner structure -->
-        </div>
-      </div>
-      <div id="ts-dots" class="mt-4 flex items-center justify-center gap-2"></div>
-    </div>
-  </section>
-
-  <!-- FAQ condensed -->
-  <section id="faq" class="bg-slate-50/60 border-y border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 md:px-6 py-14">
-      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-center">Questions We Get A Lot</h2>
-      <div class="mt-8 grid md:grid-cols-2 gap-6 text-slate-700">
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-semibold">How fast can we launch</h3>
-          <p class="mt-2">Most brands launch core flows within 10 business days. We start testing right away.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-semibold">What platforms do you support</h3>
-          <p class="mt-2">Shopify and WooCommerce are primary. We integrate Klaviyo, Omnisend, and leading SMS tools.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-semibold">How do you prove lift</h3>
-          <p class="mt-2">We use holdouts and clear reporting so you can see percentage improvements that are truly incremental.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow">
-          <h3 class="font-semibold">Do you require discounts</h3>
-          <p class="mt-2">Not by default. We start with value first creative and add incentives only when they improve profit.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA compact -->
-  <section id="book" class="py-14">
-    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
-      <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Ready to see where the lift comes from</h2>
-      <p class="mt-3 text-slate-600">Grab a quick strategy call. We will review your store and map the first 30 days to increase conversion and repeat purchase rate.</p>
-      <div class="mt-6">
-        <a href="https://calendly.com/YOUR_CALENDLY_LINK" class="inline-flex items-center justify-center bg-gradient-to-r from-teal-500 to-blue-600 text-white px-6 py-3 rounded-xl shadow hover:brightness-110 font-semibold">Schedule My Strategy Call</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-slate-100 py-8 text-center text-sm text-slate-500">
-    © 2025 Revenue Lift Engine. Built for ambitious Shopify brands.
-  </footer>
-
-  <!-- Daniel Chat Widget -->
-  <div id="daniel-launcher" aria-label="Open chat"><span>💬</span></div>
-  <div id="daniel-widget" role="dialog" aria-label="Chat with Daniel">
-    <div id="daniel-header"><img alt="Daniel avatar" src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=daniel"/> Daniel — Growth Specialist</div>
-    <div id="daniel-messages"></div>
-    <div id="daniel-input">
-      <input type="text" id="daniel-text" placeholder="Type here" />
-      <button onclick="sendMessage()">Send</button>
+    <div class="card">
+      <h4>Step 3</h4>
+      <p>We provide ongoing optimization to keep results improving month over month.</p>
     </div>
   </div>
+</section>
 
-  <script>
-    // ---------- Testimonials Data and Carousel ----------
-    const testimonials = [
-      {
-        name: "Sarah Kim",
-        role: "Founder, Veil Skincare",
-        quote: "We thought our email was fine. The audit showed missed revenue at three stages. Cart recovery and a post purchase upsell moved our conversion and AOV within the first month.",
-        metric: "22 percent lift in recovered checkouts in 30 days"
-      },
-      {
-        name: "Jason Reed",
-        role: "Owner, Vital Greens",
-        quote: "Winbacks were the silent driver. Timing and creative were tuned to our reorder cycle. The team reported clean holdout lift so we could trust the numbers.",
-        metric: "15 percent increase in repeat purchase rate in 6 weeks"
-      },
-      {
-        name: "Lena Ortiz",
-        role: "COO, Apex Athletics",
-        quote: "We added SMS touches that felt like our brand. No heavy discounts. AOV rose because the offers were relevant and timed right.",
-        metric: "10 percent increase in AOV and healthier margins"
-      },
-      {
-        name: "Mark Patel",
-        role: "CEO, BrewCraft",
-        quote: "Attribution was always a fight. Their holdout testing ended the debate. The dashboard is simple and focused on the KPIs we care about.",
-        metric: "Clear incremental lift across campaigns"
-      },
-      {
-        name: "Emily Zhao",
-        role: "Ecommerce Manager, Northshore",
-        quote: "Setup was fast. We went live in under two weeks. The weekly test plan keeps the program moving without adding work to our team.",
-        metric: "First wins in week two and steady improvements"
-      }
-    ];
+<section id="services" class="section">
+  <h3>Our Services</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>Lead Generation</h4>
+      <p>Custom AI-powered campaigns that bring in qualified leads consistently.</p>
+    </div>
+    <div class="card">
+      <h4>Upsell & Cross-sell</h4>
+      <p>Boost average order values by intelligently recommending the right products at the right time.</p>
+    </div>
+    <div class="card">
+      <h4>Conversion Optimization</h4>
+      <p>Turn more visitors into customers by improving your funnels with smart automation.</p>
+    </div>
+  </div>
+</section>
 
-    const tsInner = document.getElementById('ts-inner');
-    const tsDots = document.getElementById('ts-dots');
-    const prevBtn = document.getElementById('ts-prev');
-    const nextBtn = document.getElementById('ts-next');
+<section id="testimonials" class="testimonials">
+  <h3>What Our Clients Say</h3>
+  <div id="testimonial1" class="testimonial active">"LeadGenExpress transformed our funnel. Within 3 months, our lead flow doubled!" - Sarah, Ecom Owner</div>
+  <div id="testimonial2" class="testimonial">"The AI automation saved my team hours every week and brought in 40% more conversions." - David, SaaS Founder</div>
+  <div id="testimonial3" class="testimonial">"I was skeptical, but their system pays for itself many times over." - Laura, Retail Business</div>
+  <div id="testimonial4" class="testimonial">"They helped us capture lost revenue and upsell smarter than we ever thought possible." - James, Online Store Owner</div>
+  <div id="testimonial5" class="testimonial">"Best decision I made for my business this year. Incredible ROI." - Maria, Agency Owner</div>
+  <button onclick="showNext()">See Next</button>
+</section>
 
-    // Create cards
-    testimonials.forEach((t, i) => {
-      const card = document.createElement('article');
-      card.className = 'ts-card min-w-full md:min-w-[48%] bg-white rounded-2xl shadow p-6';
-      card.innerHTML = `
-        <div class="flex flex-col gap-3">
-          <p class="text-lg">“${t.quote}”</p>
-          <div class="text-sm text-slate-600">${t.metric}</div>
-          <div class="pt-2 font-semibold">${t.name} · <span class="text-slate-500">${t.role}</span></div>
-        </div>`;
-      tsInner.appendChild(card);
+<section id="lead-form" class="section">
+  <h3>Get Started With Us</h3>
+  <p style="text-align:center;">Enter your details below and we’ll reach out with a custom plan.</p>
+  <form style="max-width:500px;margin:0 auto;text-align:left;">
+    <label>Name:</label><br>
+    <input type="text" name="name" style="width:100%;padding:10px;margin:8px 0;"><br>
+    <label>Email:</label><br>
+    <input type="email" name="email" style="width:100%;padding:10px;margin:8px 0;"><br>
+    <label>Phone Number:</label><br>
+    <input type="tel" name="phone" style="width:100%;padding:10px;margin:8px 0;"><br>
+    <button type="submit" style="background:#00c4cc;color:white;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;">Submit</button>
+  </form>
+</section>
 
-      const dot = document.createElement('button');
-      dot.className = 'ts-dot';
-      dot.setAttribute('aria-label', `Go to testimonial ${i+1}`);
-      dot.addEventListener('click', () => goTo(i));
-      tsDots.appendChild(dot);
-    });
+<footer>
+  <p>&copy; 2025 LeadGenExpress. All rights reserved.</p>
+</footer>
 
-    let index = 0;
-    const total = testimonials.length;
-    function updateCarousel(){
-      const cardWidth = tsInner.children[0].getBoundingClientRect().width + 24; // include gap
-      tsInner.style.transform = `translateX(${-index * cardWidth}px)`;
-      [...tsDots.children].forEach((d, i) => d.classList.toggle('active', i === index));
-    }
-    function goTo(i){ index = Math.max(0, Math.min(total-1, i)); updateCarousel(); }
-    prevBtn.addEventListener('click', () => goTo(index-1));
-    nextBtn.addEventListener('click', () => goTo(index+1));
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+<script>
+  let currentTestimonial = 1;
+  function showNext() {
+    document.getElementById('testimonial' + currentTestimonial).classList.remove('active');
+    currentTestimonial = currentTestimonial === 5 ? 1 : currentTestimonial + 1;
+    document.getElementById('testimonial' + currentTestimonial).classList.add('active');
+  }
+</script>
 
-    // ---------- Daniel Scripted Chatbot with summary ----------
-    const launcher = document.getElementById('daniel-launcher');
-    const widget = document.getElementById('daniel-widget');
-    const messagesEl = document.getElementById('daniel-messages');
-    const inputEl = document.getElementById('daniel-text');
+<!-- Placeholder for your chatbot -->
+<!-- Paste your chatbot script here when ready -->
 
-    let step = 0;
-    const answers = {};
-    const flow = [
-      { key: 'platform', text: "Hi, I am Daniel, Growth Specialist from Luke's team. Can I ask you three quick questions to map the first wins. What platform are you using now. Shopify, WooCommerce, or something else" },
-      { key: 'revenue', text: "Great. What is your average monthly revenue" },
-      { key: 'challenge', text: "Thanks. What is the number one growth challenge you want solved first" },
-    ];
-
-    launcher.addEventListener('click', () => {
-      widget.style.display = 'flex';
-      launcher.style.display = 'none';
-      setTimeout(() => addBot(flow[0].text), 300);
-    });
-
-    function addBot(text){
-      const div = document.createElement('div');
-      div.className = 'daniel-message daniel-bot';
-      div.textContent = text;
-      messagesEl.appendChild(div);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-    function addUser(text){
-      const div = document.createElement('div');
-      div.className = 'daniel-message daniel-user';
-      div.textContent = text;
-      messagesEl.appendChild(div);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-
-    function sendMessage(){
-      const text = inputEl.value.trim();
-      if(!text) return;
-      addUser(text);
-      inputEl.value = '';
-      if(step < flow.length){
-        answers[flow[step].key] = text;
-        step++;
-        if(step < flow.length){ setTimeout(() => addBot(flow[step].text), 450); }
-        else {
-          const summary = `Thanks for the details. I see you are on ${answers.platform || 'your current platform'} with about ${answers.revenue || 'your current revenue'} and the main focus is ${answers.challenge || 'your top challenge'}. Let us lock a 15 minute strategy call with Luke so we can outline the plan for the next 30 days. Grab a time here: https://calendly.com/YOUR_CALENDLY_LINK`;
-          setTimeout(() => addBot(summary), 500);
-        }
-      } else {
-        setTimeout(() => addBot("I will make sure Luke sees this. Go ahead and pick your time here: https://calendly.com/YOUR_CALENDLY_LINK"), 400);
-      }
-    }
-    window.sendMessage = sendMessage;
-  </script>
 </body>
 </html>
+
