@@ -10,56 +10,48 @@
       font-family: Arial, sans-serif;
       background: #f9fafc;
       color: #333;
+      line-height: 1.5;
     }
     header {
-      background: linear-gradient(90deg, #0077ff, #00c4cc);
+      background: #0077ff;
       color: white;
-      padding: 20px 40px;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
+    header img {
+      height: 40px;
     }
-    nav a {
+    header nav a {
       color: white;
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 14px;
     }
     .hero {
+      padding: 40px 20px;
       text-align: center;
-      padding: 60px 20px;
       background: #eef7ff;
     }
     .hero h2 {
-      font-size: 36px;
-      margin-bottom: 15px;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
     .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 25px;
-    }
-    .hero button {
-      padding: 12px 25px;
       font-size: 16px;
-      border: none;
-      background: #0077ff;
-      color: white;
-      cursor: pointer;
-      border-radius: 6px;
+      max-width: 700px;
+      margin: 0 auto 15px;
     }
     .section {
-      padding: 50px 20px;
-      max-width: 1100px;
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     .section h3 {
-      font-size: 28px;
-      margin-bottom: 20px;
+      font-size: 24px;
+      margin-bottom: 15px;
       text-align: center;
     }
     .cards {
@@ -70,21 +62,21 @@
     }
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
       flex: 1 1 280px;
     }
     .testimonials {
-      text-align: center;
-      padding: 50px 20px;
       background: #f1f9ff;
+      padding: 40px 20px;
+      text-align: center;
     }
     .testimonial {
       display: none;
-      font-style: italic;
       max-width: 700px;
       margin: 0 auto;
+      font-style: italic;
     }
     .testimonial.active {
       display: block;
@@ -92,43 +84,73 @@
     footer {
       background: #0077ff;
       color: white;
+      padding: 30px 20px;
+    }
+    footer h3 {
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+    footer form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    footer label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+    footer input, footer select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    footer button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: #00c4cc;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>LeadGenExpress</h1>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="https://via.placeholder.com/120x40?text=LOGO" alt="LeadGenExpress Logo">
+    <h1 style="margin:0;font-size:20px;">LeadGenExpress</h1>
+  </div>
   <nav>
     <a href="#how-it-works">How It Works</a>
     <a href="#services">Services</a>
     <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>Fuel Your Business Growth</h2>
-  <p>At LeadGenExpress we help businesses boost lead generation, improve conversions, and increase customer lifetime value using modern AI-driven systems.</p>
-  <button onclick="document.getElementById('lead-form').scrollIntoView({behavior:'smooth'})">Get Started</button>
+  <h2>Smart Growth for Modern Businesses</h2>
+  <p>LeadGenExpress helps e-commerce and online businesses capture more leads, increase customer spending, and improve conversion rates using AI-driven automation. We streamline your sales process, reduce wasted ad spend, and turn prospects into long-term customers.</p>
 </section>
 
 <section id="how-it-works" class="section">
   <h3>How It Works</h3>
   <div class="cards">
     <div class="card">
-      <h4>Step 1</h4>
-      <p>We analyze your existing sales funnel and find hidden opportunities to capture more leads.</p>
+      <h4>Analyze</h4>
+      <p>We audit your current funnel to uncover hidden revenue opportunities and customer drop-off points.</p>
     </div>
     <div class="card">
-      <h4>Step 2</h4>
-      <p>Our AI-driven automation engages prospects, nurtures them, and converts them into customers.</p>
+      <h4>Automate</h4>
+      <p>We integrate AI systems that engage, nurture, and convert your leads without manual effort.</p>
     </div>
     <div class="card">
-      <h4>Step 3</h4>
-      <p>We provide ongoing optimization to keep results improving month over month.</p>
+      <h4>Scale</h4>
+      <p>We optimize continuously so your results grow month after month while costs shrink.</p>
     </div>
   </div>
 </section>
@@ -138,59 +160,72 @@
   <div class="cards">
     <div class="card">
       <h4>Lead Generation</h4>
-      <p>Custom AI-powered campaigns that bring in qualified leads consistently.</p>
+      <p>Attract high-quality leads with campaigns tailored to your audience.</p>
     </div>
     <div class="card">
-      <h4>Upsell & Cross-sell</h4>
-      <p>Boost average order values by intelligently recommending the right products at the right time.</p>
+      <h4>Upsell & Cross-Sell</h4>
+      <p>Boost your average order values with intelligent recommendations.</p>
     </div>
     <div class="card">
       <h4>Conversion Optimization</h4>
-      <p>Turn more visitors into customers by improving your funnels with smart automation.</p>
+      <p>Turn more visitors into buyers with tested strategies and automation.</p>
     </div>
   </div>
 </section>
 
 <section id="testimonials" class="testimonials">
   <h3>What Our Clients Say</h3>
-  <div id="testimonial1" class="testimonial active">"LeadGenExpress transformed our funnel. Within 3 months, our lead flow doubled!" - Sarah, Ecom Owner</div>
-  <div id="testimonial2" class="testimonial">"The AI automation saved my team hours every week and brought in 40% more conversions." - David, SaaS Founder</div>
-  <div id="testimonial3" class="testimonial">"I was skeptical, but their system pays for itself many times over." - Laura, Retail Business</div>
-  <div id="testimonial4" class="testimonial">"They helped us capture lost revenue and upsell smarter than we ever thought possible." - James, Online Store Owner</div>
-  <div id="testimonial5" class="testimonial">"Best decision I made for my business this year. Incredible ROI." - Maria, Agency Owner</div>
-  <button onclick="showNext()">See Next</button>
+  <div id="testimonial1" class="testimonial active">
+    “We were spending thousands on ads with little return. LeadGenExpress helped us double our conversion rate in just 60 days.”  
+    – Jessica, Online Boutique Owner
+  </div>
+  <div id="testimonial2" class="testimonial">
+    “The upsell automation they built increased our average cart value by 32%. It’s like having a 24/7 sales team.”  
+    – Ryan, Health Supplements Store
+  </div>
+  <div id="testimonial3" class="testimonial">
+    “I was skeptical, but the system paid for itself in the first month. Now we’re scaling faster than ever.”  
+    – Amanda, SaaS Founder
+  </div>
+  <button onclick="showNext()">Next Testimonial</button>
 </section>
 
-<section id="lead-form" class="section">
-  <h3>Get Started With Us</h3>
-  <p style="text-align:center;">Enter your details below and we’ll reach out with a custom plan.</p>
-  <form style="max-width:500px;margin:0 auto;text-align:left;">
-    <label>Name:</label><br>
-    <input type="text" name="name" style="width:100%;padding:10px;margin:8px 0;"><br>
-    <label>Email:</label><br>
-    <input type="email" name="email" style="width:100%;padding:10px;margin:8px 0;"><br>
-    <label>Phone Number:</label><br>
-    <input type="tel" name="phone" style="width:100%;padding:10px;margin:8px 0;"><br>
-    <button type="submit" style="background:#00c4cc;color:white;padding:12px 20px;border:none;border-radius:6px;cursor:pointer;">Submit</button>
+<footer id="contact">
+  <h3>Get In Touch</h3>
+  <form>
+    <label>Name:</label>
+    <input type="text" name="name" required>
+    
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    
+    <label>Phone:</label>
+    <input type="tel" name="phone" required>
+    
+    <label>Business Name:</label>
+    <input type="text" name="business" required>
+    
+    <label>What Help Are You Looking For?</label>
+    <select name="help" required>
+      <option value="">Select an option</option>
+      <option value="lead-gen">Lead Generation</option>
+      <option value="upsell-cross">Upsell / Cross-Sell</option>
+      <option value="conversion">Increased Conversion Rate</option>
+    </select>
+    
+    <button type="submit">Submit</button>
   </form>
-</section>
-
-<footer>
-  <p>&copy; 2025 LeadGenExpress. All rights reserved.</p>
+  <p style="text-align:center;margin-top:15px;">&copy; 2025 LeadGenExpress. All rights reserved.</p>
 </footer>
 
 <script>
   let currentTestimonial = 1;
   function showNext() {
     document.getElementById('testimonial' + currentTestimonial).classList.remove('active');
-    currentTestimonial = currentTestimonial === 5 ? 1 : currentTestimonial + 1;
+    currentTestimonial = currentTestimonial === 3 ? 1 : currentTestimonial + 1;
     document.getElementById('testimonial' + currentTestimonial).classList.add('active');
   }
 </script>
 
-<!-- Placeholder for your chatbot -->
-<!-- Paste your chatbot script here when ready -->
-
 </body>
 </html>
-
