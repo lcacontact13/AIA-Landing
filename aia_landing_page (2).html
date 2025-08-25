@@ -3,229 +3,295 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LeadGenExpress</title>
+  <title>LeadGenExpress | AI Growth Solutions</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9fafc;
-      color: #333;
-      line-height: 1.5;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #222;
+      background-color: #f9fafc;
+      line-height: 1.6;
     }
+
+    /* Header */
     header {
-      background: #0077ff;
-      color: white;
-      padding: 15px 40px;
+      background: linear-gradient(90deg, #005bea, #00c6fb);
+      color: #fff;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header img {
-      height: 40px;
+      height: 50px;
     }
-    header nav a {
-      color: white;
-      margin-left: 20px;
+    nav a {
+      margin: 0 1rem;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
+      font-weight: 500;
     }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
     .hero {
-      padding: 40px 20px;
       text-align: center;
-      background: #eef7ff;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #00c6fb, #005bea);
+      color: #fff;
     }
-    .hero h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 16px;
-      max-width: 700px;
-      margin: 0 auto 15px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
-    .section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+    .hero button {
+      background: #fff;
+      color: #005bea;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-    .section h3 {
-      font-size: 24px;
-      margin-bottom: 15px;
+    .hero button:hover {
+      background: #e6e6e6;
+    }
+
+    /* Services Section */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: #fff;
       text-align: center;
     }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .card {
-      background: white;
-      padding: 20px;
+    .service-box {
+      padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
-      flex: 1 1 280px;
+      background: #f4f8fc;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
     }
+    .service-box h3 {
+      margin-bottom: 1rem;
+      color: #005bea;
+    }
+
+    /* Testimonials */
     .testimonials {
-      background: #f1f9ff;
-      padding: 40px 20px;
+      padding: 4rem 2rem;
+      background: #f9fafc;
       text-align: center;
+    }
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
     }
     .testimonial {
       display: none;
-      max-width: 700px;
-      margin: 0 auto;
-      font-style: italic;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
     }
     .testimonial.active {
       display: block;
     }
-    footer {
-      background: #0077ff;
-      color: white;
-      padding: 30px 20px;
+    .testimonial p {
+      font-style: italic;
     }
-    footer h3 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    footer form {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    footer label {
-      display: block;
-      margin: 8px 0 4px;
-    }
-    footer input, footer select {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    footer button {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      background: #00c4cc;
-      color: white;
+    .testimonial h4 {
+      margin-top: 1rem;
       font-weight: bold;
+      color: #005bea;
+    }
+    .testimonial-nav {
+      margin-top: 1rem;
+    }
+    .testimonial-nav button {
+      border: none;
+      background: #005bea;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 5px;
       cursor: pointer;
+      font-weight: bold;
+    }
+    .testimonial-nav button:hover {
+      background: #0040b5;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    footer h2 {
+      margin-bottom: 1rem;
+    }
+    .footer-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .footer-form label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    .footer-form input,
+    .footer-form select,
+    .footer-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .footer-form button {
+      width: 100%;
+      background: #00c6fb;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .footer-form button:hover {
+      background: #005bea;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <img src="https://via.placeholder.com/150x50?text=LeadGenExpress+Logo" alt="LeadGenExpress Logo">
+    <nav>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <div style="display:flex;align-items:center;gap:10px;">
-    <img src="https://via.placeholder.com/120x40?text=LOGO" alt="LeadGenExpress Logo">
-    <h1 style="margin:0;font-size:20px;">LeadGenExpress</h1>
-  </div>
-  <nav>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#services">Services</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>AI-Powered Growth for Modern Businesses</h1>
+    <p>LeadGenExpress helps companies scale through Lead Generation, Upsell/Cross-Sell Strategies, and Conversion Optimization.</p>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+      Get My Growth Plan
+    </button>
+  </section>
 
-<section class="hero">
-  <h2>Smart Growth for Modern Businesses</h2>
-  <p>LeadGenExpress helps e-commerce and online businesses capture more leads, increase customer spending, and improve conversion rates using AI-driven automation. We streamline your sales process, reduce wasted ad spend, and turn prospects into long-term customers.</p>
-</section>
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="service-box">
+      <h3>Lead Generation</h3>
+      <p>We build AI-powered campaigns to consistently bring new, qualified leads into your pipeline, tailored to your industry.</p>
+    </div>
+    <div class="service-box">
+      <h3>Upsell & Cross-Sell</h3>
+      <p>Maximize revenue per customer by creating personalized upsell and cross-sell strategies using data-driven insights.</p>
+    </div>
+    <div class="service-box">
+      <h3>Conversion Optimization</h3>
+      <p>Turn browsers into buyers with AI-enhanced funnels, behavioral tracking, and conversion rate optimization techniques.</p>
+    </div>
+  </section>
 
-<section id="how-it-works" class="section">
-  <h3>How It Works</h3>
-  <div class="cards">
-    <div class="card">
-      <h4>Analyze</h4>
-      <p>We audit your current funnel to uncover hidden revenue opportunities and customer drop-off points.</p>
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial active">
+        <p>"LeadGenExpress transformed our e-commerce funnel. We saw a 35% increase in conversions within 60 days."</p>
+        <h4>– Sarah M., E-Commerce Founder</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Their AI systems uncovered revenue we didn’t even know we were missing. Our upsell rates doubled."</p>
+        <h4>– James R., SaaS CEO</h4>
+      </div>
+      <div class="testimonial">
+        <p>"I was skeptical at first, but their approach is data-driven and results-focused. Our lead flow has never been stronger."</p>
+        <h4>– Maria L., Marketing Director</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Not just leads, but qualified leads. Our sales team is closing more deals thanks to LeadGenExpress."</p>
+        <h4>– David W., B2B Sales VP</h4>
+      </div>
+      <div class="testimonial">
+        <p>"The ROI was clear within the first quarter. Every business serious about growth should work with them."</p>
+        <h4>– Emily K., Startup Founder</h4>
+      </div>
     </div>
-    <div class="card">
-      <h4>Automate</h4>
-      <p>We integrate AI systems that engage, nurture, and convert your leads without manual effort.</p>
+    <div class="testimonial-nav">
+      <button onclick="showTestimonial(-1)">‹</button>
+      <button onclick="showTestimonial(1)">›</button>
     </div>
-    <div class="card">
-      <h4>Scale</h4>
-      <p>We optimize continuously so your results grow month after month while costs shrink.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="services" class="section">
-  <h3>Our Services</h3>
-  <div class="cards">
-    <div class="card">
-      <h4>Lead Generation</h4>
-      <p>Attract high-quality leads with campaigns tailored to your audience.</p>
-    </div>
-    <div class="card">
-      <h4>Upsell & Cross-Sell</h4>
-      <p>Boost your average order values with intelligent recommendations.</p>
-    </div>
-    <div class="card">
-      <h4>Conversion Optimization</h4>
-      <p>Turn more visitors into buyers with tested strategies and automation.</p>
-    </div>
-  </div>
-</section>
+  <!-- Footer Contact Form -->
+  <footer id="contact">
+    <h2>Get Your Custom Growth Plan</h2>
+    <form class="footer-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+      
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+      
+      <label for="business">Business Name</label>
+      <input type="text" id="business" required>
+      
+      <label for="help">What help are you looking for?</label>
+      <select id="help" required>
+        <option value="">Select one...</option>
+        <option value="Lead Generation">Lead Generation</option>
+        <option value="Upsell/Cross Sell">Upsell / Cross Sell</option>
+        <option value="Conversion Optimization">Increased Conversion Rate</option>
+      </select>
+      
+      <button type="submit">Submit</button>
+    </form>
+  </footer>
 
-<section id="testimonials" class="testimonials">
-  <h3>What Our Clients Say</h3>
-  <div id="testimonial1" class="testimonial active">
-    “We were spending thousands on ads with little return. LeadGenExpress helped us double our conversion rate in just 60 days.”  
-    – Jessica, Online Boutique Owner
-  </div>
-  <div id="testimonial2" class="testimonial">
-    “The upsell automation they built increased our average cart value by 32%. It’s like having a 24/7 sales team.”  
-    – Ryan, Health Supplements Store
-  </div>
-  <div id="testimonial3" class="testimonial">
-    “I was skeptical, but the system paid for itself in the first month. Now we’re scaling faster than ever.”  
-    – Amanda, SaaS Founder
-  </div>
-  <button onclick="showNext()">Next Testimonial</button>
-</section>
-
-<footer id="contact">
-  <h3>Get In Touch</h3>
-  <form>
-    <label>Name:</label>
-    <input type="text" name="name" required>
+  <script>
+    // Testimonial slider
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
     
-    <label>Email:</label>
-    <input type="email" name="email" required>
-    
-    <label>Phone:</label>
-    <input type="tel" name="phone" required>
-    
-    <label>Business Name:</label>
-    <input type="text" name="business" required>
-    
-    <label>What Help Are You Looking For?</label>
-    <select name="help" required>
-      <option value="">Select an option</option>
-      <option value="lead-gen">Lead Generation</option>
-      <option value="upsell-cross">Upsell / Cross-Sell</option>
-      <option value="conversion">Increased Conversion Rate</option>
-    </select>
-    
-    <button type="submit">Submit</button>
-  </form>
-  <p style="text-align:center;margin-top:15px;">&copy; 2025 LeadGenExpress. All rights reserved.</p>
-</footer>
-
-<script>
-  let currentTestimonial = 1;
-  function showNext() {
-    document.getElementById('testimonial' + currentTestimonial).classList.remove('active');
-    currentTestimonial = currentTestimonial === 3 ? 1 : currentTestimonial + 1;
-    document.getElementById('testimonial' + currentTestimonial).classList.add('active');
-  }
-</script>
-
+    function showTestimonial(step) {
+      testimonials[currentTestimonial].classList.remove('active');
+      currentTestimonial = (currentTestimonial + step + testimonials.length) % testimonials.length;
+      testimonials[currentTestimonial].classList.add('active');
+    }
+  </script>
 </body>
 </html>
